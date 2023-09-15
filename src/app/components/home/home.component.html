@@ -1,12 +1,57 @@
-<img src="../../../assets/images/bg-header-desktop.svg" alt="" style="width: 100%; margin: 0;">
-<!-- <img src="../../../assets/images/bg-header-mobile.svg" alt=""> -->
+<img src="../../../assets/images/bg-header-desktop.svg" alt="" style="width: 100%; margin: 0; height: 22vh;">
 
-<div >
-    <div class="container">
-        <div class="name-role" ><div style="margin-top: 2vh;">Frontend</div>
+<div class="container-select">
+    <ul class="box-role">
+        <div class="name-role" *ngFor="let item of itemsFilter">
+            <div style="margin: 2%; padding: 0 2vh;">{{item}}</div>
+            <button class="button-delete" (click)="removeItem()" *ngIf="itemsFilter.length > 0"><img src="../../../assets/images/icon-remove.svg" alt=""
+                    style="width: 20px;"></button>
         </div>
-        <button class="button-delete"><img src="../../../assets/images/icon-arrow.svg" alt="" ></button>
-    </div>
-    
+    </ul>
+
+    <div class="clear" (click)="clearFilter()"><div>Clear</div></div>
 </div>
 
+
+<div class="container-jobs" *ngFor="let job of jobs">
+    <div  class="sub-container" >
+        <ul class="list-img">
+            <li> <img [src]="job.logo" alt=""></li>  
+        </ul>
+
+        <ul class="list">
+            <li class="header-title" >
+                <div class="name-title">
+                    {{job.company}}
+                </div>
+                <div class="new" *ngIf="job.new">
+                   <span class="span-label">NEW</span>
+                </div>
+                <div class="featured " *ngIf="job.featured"> <span class="span-label">FEATURED</span></div>
+            </li>
+            <div class="skill" >{{job.position}}</div>
+            <ul  class="footer-description">
+                <div class="day" >{{job.postedAt}}</div>
+               <div class="time" >
+                <li >{{job.contract}}</li>
+               </div>
+               <div class="location" >
+                <li >{{job.location}}</li>
+               </div>
+            </ul>
+
+        </ul>
+        
+        
+    </div>
+    <ul class="list-label" style="width: 50%;">
+        <div class=" " style="width: 50%;" >
+            <div style="margin-top: 2px; padding: 3px;"></div>
+        </div>
+    </ul>
+    <ul class="list-label">
+        <div class=" languages" *ngFor="let item of job.languages">
+            <div style="margin-top: 2px; padding: 3px; cursor: pointer;" (click)="filter(item)">{{item}}</div>
+        </div>
+    </ul>
+    </div>
