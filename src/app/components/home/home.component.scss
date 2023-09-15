@@ -1,3 +1,30 @@
 .container{
-    
+    // position: relative;
+    border-radius: 1px;
+    padding: 5px;
+    width: 72%;
+    height: 10vh;   
+    text-align: center;
+    box-shadow: 8px 2px 8px black;
+    margin: auto;
+    display: flex;
+}
+.button-delete{
+    // position: absolute;
+    // right: 17%;
+    // top: 20%;
+    background-color: black;
+    border-radius: 1% 28% 28% 1px;
+    border: 0;
+    color: #FFF;
+    width: 9vh;
+    height: 9vh;
+    outline: 0;
+    cursor: pointer;
+}
+.name-role{
+    background-color: rgb(228, 216, 216);
+    width: 26vh;
+    height: 9vh;
+    border-radius: 1vh 0 0 1vh;
 }
