@@ -8,8 +8,6 @@ import data from 'src/assets/data.json';
 export class HomeComponent {
   jobs: any[] = [];
   itemsFilter: any[] = [];
-  intersection: any;
-  languagesFiltered: any;
   constructor() {
     this.jobs = data;
     this.jobs.map(a => {
@@ -29,39 +27,30 @@ export class HomeComponent {
       }
 
     });
-
-
-    // console.warn(this.jobs); 
   }
 
   clearFilter() {
     this.itemsFilter = [];
+    this.jobs = data;
   }
 
-  removeItem() {
-    this.itemsFilter = [];
+  removeItem(item: string) {
+    const newArray = [];
+    for (let i = 0; i < this.itemsFilter.length; i++) {
+      if (this.itemsFilter[i] !== item) {
+        newArray.push(this.itemsFilter[i]);
+      }
+    }
+    this.itemsFilter = newArray;
+
+
   }
 
   filter(item: string) {
     this.itemsFilter.push(item);
-    // console.warn(this.itemsFilter);
-  //  console.warn(this.filterForLanguage());
-   
+    let filtered = this.jobs.filter(a => a.languages.includes(item));
+    this.jobs = filtered;
 
   }
 
-  filterForLanguage(){
-    if (this.itemsFilter.length > 0) {
-      this.jobs.find((a) => {
-         this.itemsFilter.filter((x: any) => {
-          if (a.languages.includes(x)){
-           
-                       
-          }
-        })
-      });
-    }
-    console.warn(this.languagesFiltered);
-    
-  }
 }

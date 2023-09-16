@@ -4,7 +4,7 @@
     <ul class="box-role">
         <div class="name-role" *ngFor="let item of itemsFilter">
             <div style="margin: 2%; padding: 0 2vh;">{{item}}</div>
-            <button class="button-delete" (click)="removeItem()" *ngIf="itemsFilter.length > 0"><img src="../../../assets/images/icon-remove.svg" alt=""
+            <button class="button-delete" (click)="removeItem(item)" *ngIf="itemsFilter.length > 0"><img src="../../../assets/images/icon-remove.svg" alt=""
                     style="width: 20px;"></button>
         </div>
     </ul>
@@ -13,8 +13,8 @@
 </div>
 
 
-<div class="container-jobs" *ngFor="let job of jobs">
-    <div  class="sub-container" >
+<div class="container-jobs col-6" *ngFor="let job of jobs">
+    <div  class="sub-container col-6" >
         <ul class="list-img">
             <li> <img [src]="job.logo" alt=""></li>  
         </ul>
@@ -44,12 +44,12 @@
         
         
     </div>
-    <ul class="list-label" style="width: 50%;">
+    <!-- <ul class="list-label" style="width: 50%;">
         <div class=" " style="width: 50%;" >
             <div style="margin-top: 2px; padding: 3px;"></div>
         </div>
-    </ul>
-    <ul class="list-label">
+    </ul> -->
+    <ul class="list-label row">
         <div class=" languages" *ngFor="let item of job.languages">
             <div style="margin-top: 2px; padding: 3px; cursor: pointer;" (click)="filter(item)">{{item}}</div>
         </div>
