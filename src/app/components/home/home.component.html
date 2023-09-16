@@ -18,8 +18,8 @@
     </div>
     
     
-    <div class="container-jobs col-6" *ngFor="let job of jobs">
-        <div  class="sub-container col-6" >
+    <div class="container-jobs col" *ngFor="let job of jobs">
+        <div  class="sub-container col" >
             <ul class="list-img">
                 <li> <img [src]="job.logo" alt=""></li>  
             </ul>
@@ -49,12 +49,14 @@
             
             
         </div>
-    
-        <ul class="list-label row" *ngFor="let item of job.languages">
+    <div class="row">
+        
+        <ul class="list-label col" *ngFor="let item of job.languages">
             <div class="languages" (click)="filter(item)">
                 <div class="filter"  >{{item}}</div>
             </div>
         </ul>
+    </div>
         </div>
     
 </div>
