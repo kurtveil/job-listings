@@ -42,12 +42,21 @@ export class HomeComponent {
       }
     }
     this.itemsFilter = newArray;
-
-
+   if (this.itemsFilter.length> 0){
+    this.itemsFilter.map(i =>{
+      this.jobs = data;
+      let filtered = this.jobs.filter(a => a.languages.includes(i));
+      this.jobs = filtered;
+    })
+   } else{
+     this.jobs = data;
+   }
   }
 
   filter(item: string) {
-    this.itemsFilter.push(item);
+    if (!this.itemsFilter.includes(item)){
+      this.itemsFilter.push(item);
+    }
     let filtered = this.jobs.filter(a => a.languages.includes(item));
     this.jobs = filtered;
 

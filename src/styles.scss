@@ -1,7 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap');
-// @import "~bootstrap/dist/css/bootstrap.css." ;
 body{
+    
     margin: 0;
     font-family: 'League Spartan';
+}
+.bg-image{
+    width: 100%; margin: 0; height: 22vh;
+}
+.filter{
+    margin-top: 2px; padding: 3px; ;
+}
+.icon-remove{
+    width: 20px;
+}
+.item-filter{
+    margin: 2%; padding: 0 2vh;
 }

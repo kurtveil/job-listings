@@ -1,57 +1,60 @@
-<img src="../../../assets/images/bg-header-desktop.svg" alt="" style="width: 100%; margin: 0; height: 22vh;">
-
-<div class="container-select">
-    <ul class="box-role">
-        <div class="name-role" *ngFor="let item of itemsFilter">
-            <div style="margin: 2%; padding: 0 2vh;">{{item}}</div>
-            <button class="button-delete" (click)="removeItem(item)" *ngIf="itemsFilter.length > 0"><img src="../../../assets/images/icon-remove.svg" alt=""
-                    style="width: 20px;"></button>
-        </div>
-    </ul>
-
-    <div class="clear" (click)="clearFilter()"><div>Clear</div></div>
-</div>
-
-
-<div class="container-jobs col-6" *ngFor="let job of jobs">
-    <div  class="sub-container col-6" >
-        <ul class="list-img">
-            <li> <img [src]="job.logo" alt=""></li>  
-        </ul>
-
-        <ul class="list">
-            <li class="header-title" >
-                <div class="name-title">
-                    {{job.company}}
-                </div>
-                <div class="new" *ngIf="job.new">
-                   <span class="span-label">NEW</span>
-                </div>
-                <div class="featured " *ngIf="job.featured"> <span class="span-label">FEATURED</span></div>
-            </li>
-            <div class="skill" >{{job.position}}</div>
-            <ul  class="footer-description">
-                <div class="day" >{{job.postedAt}}</div>
-               <div class="time" >
-                <li >{{job.contract}}</li>
-               </div>
-               <div class="location" >
-                <li >{{job.location}}</li>
-               </div>
+<div >
+    <div class="img-bg">
+        <img src="../../../assets/images/bg-header-desktop.svg" alt="" class="bg-image">
+    </div>
+    
+    <div class="container-select row">
+        <ul class="box-role row ">
+            <div class="name-role" *ngFor="let item of itemsFilter">
+                <div  class="item-filter">{{item}}</div>
+                <button class="button-delete" (click)="removeItem(item)" *ngIf="itemsFilter.length > 0">
+                    <img class="icon-remove" src="../../../assets/images/icon-remove.svg" alt=""
+                        >
+                </button>
+                    </div>
+                    <div class="clear " (click)="clearFilter()"><div >Clear</div></div>
+                </ul>
+    
+    </div>
+    
+    
+    <div class="container-jobs col-6" *ngFor="let job of jobs">
+        <div  class="sub-container col-6" >
+            <ul class="list-img">
+                <li> <img [src]="job.logo" alt=""></li>  
             </ul>
-
+    
+            <ul class="list">
+                <li class="header-title" >
+                    <div class="name-title">
+                        {{job.company}}
+                    </div>
+                    <div class="new" *ngIf="job.new">
+                       <span class="span-label">NEW</span>
+                    </div>
+                    <div class="featured " *ngIf="job.featured"> <span class="span-label">FEATURED</span></div>
+                </li>
+                <div class="skill" >{{job.position}}</div>
+                <ul  class="footer-description">
+                    <div class="day" >{{job.postedAt}}</div>
+                   <div class="time" >
+                    <li >{{job.contract}}</li>
+                   </div>
+                   <div class="location" >
+                    <li >{{job.location}}</li>
+                   </div>
+                </ul>
+    
+            </ul>
+            
+            
+        </div>
+    
+        <ul class="list-label row" *ngFor="let item of job.languages">
+            <div class="languages" (click)="filter(item)">
+                <div class="filter"  >{{item}}</div>
+            </div>
         </ul>
-        
-        
-    </div>
-    <!-- <ul class="list-label" style="width: 50%;">
-        <div class=" " style="width: 50%;" >
-            <div style="margin-top: 2px; padding: 3px;"></div>
         </div>
-    </ul> -->
-    <ul class="list-label row">
-        <div class=" languages" *ngFor="let item of job.languages">
-            <div style="margin-top: 2px; padding: 3px; cursor: pointer;" (click)="filter(item)">{{item}}</div>
-        </div>
-    </ul>
-    </div>
+    
+</div>
